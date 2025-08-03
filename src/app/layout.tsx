@@ -6,12 +6,6 @@ import { cn } from "@/lib/utils";
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 
-const geist = Geist({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-geist',
-})
-
 export const metadata: Metadata = {
   title: "AuroraFlow",
   description: "Um espaço para fluir seu trabalho"
@@ -19,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="pt-br" suppressHydrationWarning>
-      <body className={cn("min-h-screen bg-background font-sans antialiased", geist.className)}>
+      <body className={cn("min-h-screen bg-background font-sans antialiased")}>
         <ThemeProvider disableTransitionOnChange enableSystem defaultTheme="system">
           <SidebarProvider>
             <AppSidebar/>
