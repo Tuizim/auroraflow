@@ -23,7 +23,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
         <ThemeProvider disableTransitionOnChange enableSystem defaultTheme="system">
           <SidebarProvider>
             <AppSidebar/>
-            <main className="m-10">
+            <main className="flex-grow m-20">
               {children}
             </main>
           </SidebarProvider>

@@ -1,7 +1,6 @@
 import {
   Sidebar,
   SidebarContent,
-  SidebarFooter,
   SidebarHeader,
   SidebarMenu,
   SidebarMenuItem,
@@ -11,7 +10,6 @@ import { AlarmClock, AudioWaveform, ChartColumn, CircleCheckBig, ClipboardPen } 
 import { Tooltip, TooltipContent, TooltipTrigger } from "@radix-ui/react-tooltip"
 import { TooltipProvider } from "./ui/tooltip"
 import { LogoBlackBall } from "@/assets/logo-aurora"
-import { TypographyMuted } from "./ui/typography"
 import Link from "next/link"
 
 const itens = [
@@ -57,7 +55,7 @@ export function AppSidebar() {
                     <TooltipTrigger asChild>
                       <Link href={item.url}>
                         <Button variant='ghost' className="w-10 h-10 cursor-pointer">
-                          <item.icon className="!w-6 !h-6" />
+                          <item.icon className="!w-6 !h-6" strokeWidth={1.5} />
                         </Button>
                       </Link>
                     </TooltipTrigger>
