@@ -1,5 +1,4 @@
-import { LogoSimpleBlack } from "@/assets/logo-aurora";
-import { TypographyH1, TypographyH2, TypographyLead } from "@/components/ui/typography";
+import { TypographyH1, TypographyLead } from "@/components/ui/typography";
 
 export default function Home() {
   return (

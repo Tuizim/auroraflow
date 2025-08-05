@@ -200,9 +200,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-input:-webkit-autofill {
-  box-shadow: 0 0 0 1000px white inset !important;
-  caret-color: black !important;
-  -webkit-text-fill-color: theme('colors.foreground.DEFAULT') !important;
-}
