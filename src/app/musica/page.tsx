@@ -10,9 +10,9 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { AlertCircleIcon } from "lucide-react";
-import MusicaControlePopup from "@/components/musica-controle-popover";
 import { useState } from "react";
 import { useYoutubeProvider } from "@/components/youtube-provider";
+import MusicaControlePopover from "@/components/musica-controle-popover";
 
 export default function Page() {
   const [urlInput, setUrlInput] = useState("")
@@ -42,7 +42,7 @@ export default function Page() {
             </div>
             {
               youtubeContext.statusPlayer &&
-              <MusicaControlePopup />
+              <MusicaControlePopover />
             }
           </CardContent>
         </Card>

@@ -17,7 +17,7 @@ export default function CheckContent({ status, mudarStatus}: CheckContentProps) 
       {status ? (
         <CircleCheckBig className="text-chart-2" strokeWidth={1}/>
       ) : (
-        <Circle className="opacity-30" strokeWidth={1} />
+        <Circle className="opacity-30" strokeWidth={1}/>
       )}
     </div>
   )

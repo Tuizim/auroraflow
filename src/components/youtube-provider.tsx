@@ -6,7 +6,7 @@ import { YoutubePlayer } from './youtube-player';
 type YoutubeProviderContextType = {
     youtubeContext: YoutubePlayerType
 }
-const YoutubeProviderContext = createContext<YoutubeProviderContextType | undefined>(undefined);
+export const YoutubeProviderContext = createContext<YoutubeProviderContextType | undefined>(undefined);
 
 interface YoutubeProviderProps {
     children: ReactNode;

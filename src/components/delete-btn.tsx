@@ -12,19 +12,18 @@ import { Button } from "./ui/button"
 import { Trash } from "lucide-react"
 
 type deleteBtn = {
-    id: string;
-    excluir: (id: string) => void;
+    funcaoExcluir: () => void;
 };
 
-export default function DeleteBtn({ excluir, id }: deleteBtn) {
+export default function DeleteBtn({ funcaoExcluir }: deleteBtn) {
     return (
         <Dialog>
             <DialogTrigger
-                aria-label='deletar tarefa'
+                aria-label='deletar item'
             >
-                <Trash className="cursor-pointer hover:scale-110 transition-transform duration-200"></Trash>
+                <Trash className="cursor-pointer hover:scale-110 transition-transform duration-200" />
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent aria-label="deletar dialog">
                 <DialogHeader>
                     <DialogTitle>Tem certeza que deseja excluir este item?</DialogTitle>
                     <DialogDescription>
@@ -33,9 +32,11 @@ export default function DeleteBtn({ excluir, id }: deleteBtn) {
                 </DialogHeader>
                 <AlertDialogFooter>
                     <DialogClose asChild>
-                        <Button className='cursor-pointer' variant='outline'>Cancelar</Button>
+                        <Button className='cursor-pointer' variant='outline' aria-label="cancelar">Cancelar</Button>
                     </DialogClose>
-                    <Button className='cursor-pointer' onClick={() => excluir(id)}>Confirmar</Button>
+                    <DialogClose asChild>
+                        <Button className='cursor-pointer' onClick={funcaoExcluir} aria-label="confirmar">Confirmar</Button>
+                    </DialogClose>
                 </AlertDialogFooter>
             </DialogContent>
         </Dialog>

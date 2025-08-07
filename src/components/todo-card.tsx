@@ -23,6 +23,7 @@ export default function TodoCard({ tarefa, mudarStatus, excluirTarefa, editarTar
     const mudarStatusFunction = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         mudarStatus(!tarefa.concluido, tarefa.id)
     }
+    const excluirTarefaPorId = ()=>{excluirTarefa(tarefa.id)}
     const prioridadeCorBookMarkClassName = 'text-' + DefinirCorTailWind(tarefa.prioridade)
     return (
         <Card className={`flex-grow max-w-full gap-5 ${cardClassNameConcluido}`}>
@@ -42,7 +43,7 @@ export default function TodoCard({ tarefa, mudarStatus, excluirTarefa, editarTar
                         <VerMaisInformacao titulo={tarefa.titulo} descricao={tarefa.descricao} />
                     }
                     <TarefaEditorSheet editarTarefa={editarTarefa} tarefa={tarefa} />
-                    <DeleteBtn excluir={excluirTarefa} id={tarefa.id} />
+                    <DeleteBtn funcaoExcluir={excluirTarefaPorId}/>
                 </div>
             </CardContent>
         </Card >

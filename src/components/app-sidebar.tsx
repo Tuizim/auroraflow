@@ -43,7 +43,7 @@ export function AppSidebar() {
   return (
     <Sidebar className="flex flex-col items-center justify-between overflow-hidden">
       <SidebarHeader className="items-center mt-5">
-        <LogoBlackBall className="w-10 h-10"></LogoBlackBall>
+        <LogoBlackBall className="w-10 h-10" aria-label="logo" role="img"/>
       </SidebarHeader>
       <SidebarContent className="mt-5">
         <SidebarMenu className="flex items-center gap-5">
@@ -54,7 +54,7 @@ export function AppSidebar() {
                   <Tooltip>
                     <TooltipTrigger asChild>
                       <Link href={item.url}>
-                        <Button variant='ghost' className="w-10 h-10 cursor-pointer">
+                        <Button variant='ghost' className="w-10 h-10 cursor-pointer" aria-label={item.title}>
                           <item.icon className="!w-6 !h-6" strokeWidth={1.5} />
                         </Button>
                       </Link>

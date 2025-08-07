@@ -10,7 +10,7 @@ type Predefinicao = {
 
 type PredefinicaoTipo = 'NoContent';
 
-const predefinicoes: Record<PredefinicaoTipo, Predefinicao> = {
+export const predefinicoes: Record<PredefinicaoTipo, Predefinicao> = {
     NoContent: {
         titulo: 'Nada por aqui… ainda!',
         descricao: 'Que tal criar sua primeira tarefa e dar o primeiro passo para uma rotina mais leve?',
