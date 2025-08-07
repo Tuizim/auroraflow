@@ -28,12 +28,12 @@ export default function TarefaCreatorDialog({ adicionarTarefa }: tarefaCreatorFo
 
     return (
         <Dialog open={open} onOpenChange={setOpen}>
-            <DialogTrigger asChild>
+            <DialogTrigger asChild aria-label='adicionar tarefa'>
                 <Button className="cursor-pointer select-none">
                     <Plus />  Nova Tarefa
                 </Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent aria-label='Dialog criar tarefa'>
                 <DialogHeader>
                     <DialogTitle>Crie sua tarefa</DialogTitle>
                     <DialogDescription>
@@ -44,10 +44,10 @@ export default function TarefaCreatorDialog({ adicionarTarefa }: tarefaCreatorFo
                     salvarTarefa={submitFormulario}
                 />
                 <DialogFooter>
-                    <DialogClose asChild>
-                        <Button variant='outline' type='reset' form='tarefa-form' tabIndex={5}>Cancelar</Button>
+                    <DialogClose aria-label='fechar dialog' asChild>
+                        <Button variant='outline' type='reset' form='tarefa-form' aria-label='cancelar'>Cancelar</Button>
                     </DialogClose>
-                    <Button type='submit' form='tarefa-form' tabIndex={4}>Salvar</Button>
+                    <Button type='submit' form='tarefa-form' aria-label='salvar'>Salvar</Button>
                 </DialogFooter>
             </DialogContent>
         </Dialog >

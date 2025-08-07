@@ -42,13 +42,12 @@ export default function TarefaForm({ tarefa, salvarTarefa }: tarefaFormProps) {
     }
 
     return (
-        <form onSubmit={form.handleSubmit(submit)} className='flex flex-col gap-8' id="tarefa-form">
+        <form onSubmit={form.handleSubmit(submit)} className='flex flex-col gap-8' id="tarefa-form" aria-label="form de tarefa">
             <div className='grid w-full items-center gap-3'>
-                <Label htmlFor='tarefa-titulo'> Título</Label>
+                <Label htmlFor='tarefa-titulo' aria-label='titulo'> Título</Label>
                 <Input
                     id='tarefa-titulo'
                     type='text'
-                    tabIndex={1}
                     placeholder='Digite o título da tarefa aqui'
                     {...form.register("titulo",
                         {
@@ -72,7 +71,6 @@ export default function TarefaForm({ tarefa, salvarTarefa }: tarefaFormProps) {
             <div className='grid w-full items-center gap-3'>
                 <Label htmlFor='tarefa-descricao'>Descrição</Label>
                 <Textarea
-                    tabIndex={2}
                     placeholder="Conte mais sobre essa tarefa aqui."
                     id="tarefa-descricao"
                     {...form.register('descricao')}
@@ -88,7 +86,6 @@ export default function TarefaForm({ tarefa, salvarTarefa }: tarefaFormProps) {
                             <SelectTrigger
                                 id="tarefa-prioridade"
                                 className="w-full"
-                                tabIndex={3}
                             >
                                 <SelectValue placeholder="Selecione a prioridade" />
                             </SelectTrigger>
