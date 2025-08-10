@@ -20,3 +20,8 @@ global.ResizeObserver = class ResizeObserver {
   unobserve() { }
   disconnect() { }
 };
+
+beforeAll(() => {
+    window.HTMLElement.prototype.scrollIntoView = function () { };
+    window.HTMLElement.prototype.hasPointerCapture = function () { return false; };
+});

@@ -4,11 +4,6 @@ import { Tarefa } from "@/models/tarefa";
 import { fireEvent, render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-beforeAll(() => {
-    window.HTMLElement.prototype.scrollIntoView = function () { };
-    window.HTMLElement.prototype.hasPointerCapture = function () { return false; };
-});
-
 describe("Formulario de tarefa", () => {
     let salvarTarefa: jest.Mock;
     let tarefaExistente: Tarefa;
