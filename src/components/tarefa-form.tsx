@@ -7,6 +7,8 @@ import { TypographyMuted } from './ui/typography';
 import { Textarea } from './ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './ui/select';
 import { Tarefa } from '@/models/tarefa';
+import { Alert, AlertDescription, AlertTitle } from './ui/alert';
+import { Terminal } from 'lucide-react';
 
 type tarefaFormProps = {
     tarefa?: Tarefa;
@@ -69,7 +71,7 @@ export default function TarefaForm({ tarefa, salvarTarefa }: tarefaFormProps) {
                 }
             </div>
             <div className='grid w-full items-center gap-3'>
-                <Label htmlFor='tarefa-descricao'>Descrição</Label>
+                <Label htmlFor='tarefa-descricao' aria-label='descricao'>Descrição</Label>
                 <Textarea
                     placeholder="Conte mais sobre essa tarefa aqui."
                     id="tarefa-descricao"
@@ -77,7 +79,7 @@ export default function TarefaForm({ tarefa, salvarTarefa }: tarefaFormProps) {
                 />
             </div>
             <div className='grid w-full items-center gap-3'>
-                <Label htmlFor='tarefa-prioridade'>Prioridade</Label>
+                <Label htmlFor='tarefa-prioridade' aria-label='seletor prioridade'>Prioridade</Label>
                 <Controller
                     name='prioridade'
                     control={form.control}
