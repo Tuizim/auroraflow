@@ -20,7 +20,7 @@ describe("Popover com controles de musica", () => {
         setId: jest.fn(),
         resetarTodosAtributos: jest.fn(),
     };
-    it("Deve exibir trigger para abrir popover", () => {
+    it("MusicaControlePopover - exibe trigger para abrir popover", () => {
         render(
             <YoutubeProvider>
                 <MusicaControlePopover />
@@ -32,7 +32,7 @@ describe("Popover com controles de musica", () => {
         expect(trigger).toBeEnabled()
         expect(trigger).toBeVisible()
     })
-    it("Deve exibir controle somente ao clique", () => {
+    it("MusicaControlePopover - exibe controle somente ao clique", () => {
         render(
             <YoutubeProvider>
                 <MusicaControlePopover />
@@ -43,7 +43,7 @@ describe("Popover com controles de musica", () => {
         fireEvent.click(screen.getByLabelText(/controlar musica/i))
         expect(screen.getByLabelText(/popover controle musica/i)).toBeInTheDocument()
     })
-    it("Deve exibir botao pause quando 'status' do youtubecontext for true - tocando", () => {
+    it("MusicaControlePopover - exibe botão pause quando status do youtubecontext for true (tocando)", () => {
         mockYoutubeContext.status = true
         render(
             <YoutubeProviderContext.Provider value={{ youtubeContext: mockYoutubeContext }}>
@@ -54,7 +54,7 @@ describe("Popover com controles de musica", () => {
         fireEvent.click(screen.getByLabelText(/controlar musica/i))
         expect(screen.getByRole('button', { name: 'botao pause' })).toBeInTheDocument()
     })
-    it("Deve exibir botao play quando 'status' do youtubecontext for false - pausado", () => {
+    it("MusicaControlePopover - exibe botão play quando status do youtubecontext for false (pausado)", () => {
         mockYoutubeContext.status = false
         render(
             <YoutubeProviderContext.Provider value={{ youtubeContext: mockYoutubeContext }}>
@@ -65,7 +65,7 @@ describe("Popover com controles de musica", () => {
         fireEvent.click(screen.getByLabelText(/controlar musica/i))
         expect(screen.getByRole('button', { name: 'botao play' })).toBeInTheDocument()
     })
-    it("Deve chamar setStatus passando 'false' quando clicar no 'botao pause'", () => {
+    it("MusicaControlePopover - chama setStatus(false) ao clicar no botão pause", () => {
         mockYoutubeContext.status = true
         render(
             <YoutubeProviderContext.Provider value={{ youtubeContext: mockYoutubeContext }}>
@@ -79,7 +79,7 @@ describe("Popover com controles de musica", () => {
 
         expect(mockYoutubeContext.setStatus).toHaveBeenCalledWith(false)
     })
-    it("Deve chamar setStatus passando 'true' quando clicar no 'botao play'", () => {
+    it("MusicaControlePopover - chama setStatus(true) ao clicar no botão play", () => {
         mockYoutubeContext.status = false
         render(
             <YoutubeProviderContext.Provider value={{ youtubeContext: mockYoutubeContext }}>
@@ -93,7 +93,7 @@ describe("Popover com controles de musica", () => {
 
         expect(mockYoutubeContext.setStatus).toHaveBeenCalledWith(true)
     })
-    it("Deve renderizar slider com volume inicial e reagir à mudança", () => {
+    it("MusicaControlePopover - renderiza slider de volume e reage à mudança", () => {
         render(
             <YoutubeProviderContext.Provider value={{ youtubeContext: mockYoutubeContext }}>
                 <MusicaControlePopover />
@@ -107,7 +107,7 @@ describe("Popover com controles de musica", () => {
         fireEvent.keyDown(slider, { key: 'ArrowRight', code: 'ArrowRight' })
         expect(mockYoutubeContext.setVolume).toHaveBeenCalled();
     })
-    it("Deve renderizar 'botao de encerrar' e mudar 'status do player' para 'falso' ao clicar", () => {
+    it("MusicaControlePopover - renderiza botão de encerrar e muda status do player para falso ao clicar", () => {
         render(
             <YoutubeProviderContext.Provider value={{ youtubeContext: mockYoutubeContext }}>
                 <MusicaControlePopover />

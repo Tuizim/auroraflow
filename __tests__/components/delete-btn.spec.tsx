@@ -2,7 +2,7 @@ import DeleteBtn from "@/components/delete-btn"
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 
 describe("Delete-Button", () => {
-    it("Deve renderizar botão para abrir dialog.", () => {
+    it("DeleteBtn - renderiza botão para abrir dialog", () => {
         render(<DeleteBtn funcaoExcluir={() => { }} />)
 
         const trigger = screen.getByLabelText(/deletar item/i)
@@ -13,18 +13,18 @@ describe("Delete-Button", () => {
         expect(triggerIcon).toBeInTheDocument()
         expect(triggerIcon).toBeVisible()
     })
-    it("Não deve retornar exibir dialog antes do clique.", () => {
+    it("DeleteBtn - não exibe dialog antes do clique", () => {
         render(<DeleteBtn funcaoExcluir={() => { }} />)
 
         expect(screen.queryByLabelText(/deletar dialog/i)).not.toBeInTheDocument()
     })
-    it("Deve exibir dialog apos o clique.", () => {
+    it("DeleteBtn - exibe dialog após o clique", () => {
         render(<DeleteBtn funcaoExcluir={() => { }} />)
         fireEvent.click(screen.getByLabelText(/deletar item/i))
 
         expect(screen.getByLabelText(/deletar dialog/i)).toBeInTheDocument()
     })
-    it("Dialogo deve renderizar todos os botões.", () => {
+    it("DeleteBtn - dialogo renderiza todos os botões", () => {
         render(<DeleteBtn funcaoExcluir={() => { }} />)
         fireEvent.click(screen.getByLabelText(/deletar item/i))
 
@@ -38,7 +38,7 @@ describe("Delete-Button", () => {
         expect(confirmar).toBeVisible()
         expect(confirmar).toBeEnabled()
     })
-    it("Dialogo deve fechar ao clicar 'cancelar' sem executar funcaoExlcuir", () => {
+    it("DeleteBtn - dialogo fecha ao clicar 'cancelar' sem executar funcaoExcluir", () => {
         const mockFuncao = jest.fn()
         render(<DeleteBtn funcaoExcluir={mockFuncao} />)
         fireEvent.click(screen.getByLabelText(/deletar item/i))
@@ -49,7 +49,7 @@ describe("Delete-Button", () => {
         expect(screen.queryByLabelText(/deletar dialog/i)).not.toBeInTheDocument()
         expect(mockFuncao).not.toHaveBeenCalled()
     })
-    it("Dialogo deve fechar ao clicar 'confirmar' e executar funcaoExlcuir", () => {
+    it("DeleteBtn - dialogo fecha ao clicar 'confirmar' e executa funcaoExcluir", () => {
         const mockFuncao = jest.fn()
         render(<DeleteBtn funcaoExcluir={mockFuncao} />)
         fireEvent.click(screen.getByLabelText(/deletar item/i))

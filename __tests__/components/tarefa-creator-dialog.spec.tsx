@@ -2,16 +2,16 @@ import TarefaCreatorDialog from "@/components/tarefa-creator-dialog"
 import { fireEvent, render, screen, waitFor } from "@testing-library/react"
 
 describe("Dialog para crição de tarefa", () => {
-    it("Deve renderizar corretamente trigger e nao deve rendereziar content", () => {
+    it("TarefaCreatorDialog - renderiza trigger sem content", () => {
         render(<TarefaCreatorDialog adicionarTarefa={() => { }} />)
         const trigger = screen.getByLabelText(/adicionar tarefa/i)
         const dialog = screen.queryByLabelText(/Dialog criar tarefa/i)
 
         expect(trigger.querySelector('button'))
-        expect(trigger)
+        expect(trigger).toBeInTheDocument()
         expect(dialog).not.toBeInTheDocument()
     })
-    it("Deve renderizar corretamente dialog ao clicar no trigger", () => {
+    it("TarefaCreatorDialog - renderiza dialog ao clicar no trigger", () => {
         render(<TarefaCreatorDialog adicionarTarefa={() => { }} />)
         const trigger = screen.getByLabelText(/adicionar tarefa/i)
         fireEvent.click(trigger)
@@ -19,7 +19,7 @@ describe("Dialog para crição de tarefa", () => {
 
         expect(dialog).toBeInTheDocument()
     })
-    it("Deve renderizar o formulario de tarefa corretamente", () => {
+    it("TarefaCreatorDialog - renderiza formulário de tarefa", () => {
         render(<TarefaCreatorDialog adicionarTarefa={() => { }} />)
         fireEvent.click(screen.getByLabelText(/adicionar tarefa/i))
         const form = screen.getByRole('form', { name: /form de tarefa/i })
@@ -27,7 +27,7 @@ describe("Dialog para crição de tarefa", () => {
         expect(form).toBeInTheDocument()
         expect(form).toHaveAttribute('id', 'tarefa-form')
     })
-    it("Deve renderizar botao de 'salvar' e 'cancelar' corretamente e que estejam vinculados ao formulario", () => {
+    it("TarefaCreatorDialog - renderiza botões 'salvar' e 'cancelar' vinculados ao formulário", () => {
         render(<TarefaCreatorDialog adicionarTarefa={() => { }} />)
         fireEvent.click(screen.getByLabelText(/adicionar tarefa/i))
 
@@ -42,7 +42,7 @@ describe("Dialog para crição de tarefa", () => {
         expect(cancelar).toHaveAttribute('form', 'tarefa-form')
     })
 
-    it("Deve chamar 'adicionar tarefa' e 'fechar dialog' ao clicar em 'salvar'", async () => {
+    it("TarefaCreatorDialog - chama 'adicionar tarefa' e fecha dialog ao salvar", async () => {
         const mockFuncao = jest.fn()
         render(<TarefaCreatorDialog adicionarTarefa={mockFuncao} />)
         fireEvent.click(screen.getByLabelText(/adicionar tarefa/i))
@@ -62,7 +62,7 @@ describe("Dialog para crição de tarefa", () => {
             titulo: 'Minha tarefa'
         }));
     })
-    it("Deve fechar dialog ao clicar em cancelar'", () => {
+    it("TarefaCreatorDialog - fecha dialog ao clicar em cancelar", () => {
         render(<TarefaCreatorDialog adicionarTarefa={() => { }} />)
         fireEvent.click(screen.getByLabelText(/adicionar tarefa/i))
 

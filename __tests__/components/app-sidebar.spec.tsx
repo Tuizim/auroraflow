@@ -3,7 +3,7 @@ import { SidebarProvider } from '@/components/ui/sidebar'
 import { render, screen } from '@testing-library/react'
 
 describe("AppSidebar", () => {
-    it("Deve renderizar todos os botões", () => {
+    it("AppSidebar - renderiza todos os botões", () => {
         render(
             <SidebarProvider>
                 <AppSidebar />
@@ -11,12 +11,13 @@ describe("AppSidebar", () => {
         )
         const botoes = screen.getAllByRole("button")
         botoes.forEach(botao => {
+            expect(botao).toBeInTheDocument();
             expect(botao).toBeVisible()
-            expect(botao).toBeValid()
+            expect(botao).toBeEnabled()
         });
         expect(botoes).toHaveLength(5)
     })
-    it("Deve conter o link correto em cada botão", () => {
+    it("AppSidebar - contém o link correto em cada botão", () => {
         render(
             <SidebarProvider>
                 <AppSidebar />
@@ -36,7 +37,7 @@ describe("AppSidebar", () => {
             expect(link).toHaveAttribute("href",itemEsperado.href)
         });
     })
-    it("Deve conter o logo do site",()=>{
+    it("AppSidebar - contém o logo do site",()=>{
         render(
             <SidebarProvider>
                 <AppSidebar />
