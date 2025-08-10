@@ -1,13 +1,12 @@
 "use client";
 import React from 'react'
-import { Card, CardContent, CardHeader } from './ui/card'
+import { Card, CardContent } from './ui/card'
 import { TypographyH3 } from './ui/typography'
 import CheckContent from './check-content';
 import { Tarefa } from '@/models/tarefa';
 import DeleteBtn from './delete-btn';
 import TarefaEditorSheet from './tarefa-editor-sheet';
-import { DefinirCorTailWind } from '@/lib/prioridade-cor';
-import { Bookmark } from 'lucide-react';
+import { DefinirCorTailWindText } from '@/lib/prioridade-cor';
 import { BookmarkSimple } from 'phosphor-react'
 import { VerMaisInformacao } from './ver-mais-informacao';
 
@@ -24,7 +23,7 @@ export default function TodoCard({ tarefa, mudarStatus, excluirTarefa, editarTar
         mudarStatus(!tarefa.concluido, tarefa.id)
     }
     const excluirTarefaPorId = ()=>{excluirTarefa(tarefa.id)}
-    const prioridadeCorBookMarkClassName = 'text-' + DefinirCorTailWind(tarefa.prioridade)
+    const prioridadeCorBookMarkClassName = DefinirCorTailWindText(tarefa.prioridade)
     return (
         <Card className={`flex-grow max-w-full gap-5 ${cardClassNameConcluido}`}>
             <CardContent className='flex justify-between'>
