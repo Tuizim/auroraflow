@@ -1,5 +1,5 @@
+import { ThemeProvider } from "@/components/theme-provider";
 import { render, screen } from "@testing-library/react";
-import { ThemeProvider } from "next-themes";
 
 describe("ThemeProvider", () => {
   it("renderiza children corretamente", () => {
