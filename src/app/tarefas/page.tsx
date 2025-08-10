@@ -1,7 +1,7 @@
 "use client";
 import NoContent from "@/components/no-content";
 import TarefaCreatorDialog from "@/components/tarefa-creator-dialog";
-import TodoCard from "@/components/todo-card";
+import TarefaCard from "@/components/tarefa-card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { TypographyH2, TypographyH3, TypographyLead } from "@/components/ui/typography";
@@ -33,7 +33,7 @@ export default function Page() {
         {
           tarefas.length > 0 ?
             tarefas.map(tarefa => (
-              <TodoCard
+              <TarefaCard
                 key={tarefa.id}
                 tarefa={tarefa}
                 mudarStatus={mudarStatusTarefa}

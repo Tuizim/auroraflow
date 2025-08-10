@@ -6,32 +6,31 @@ import CheckContent from './check-content';
 import { Tarefa } from '@/models/tarefa';
 import DeleteBtn from './delete-btn';
 import TarefaEditorSheet from './tarefa-editor-sheet';
-import { DefinirCorTailWindText } from '@/lib/prioridade-cor';
 import { VerMaisInformacao } from './ver-mais-informacao';
 import { Badge } from './ui/badge';
 
-type TodoCardProps = {
+type TarefaCardProps = {
     tarefa: Tarefa;
     mudarStatus: (status: boolean, tarefaId: string) => void;
     excluirTarefa: (id: string) => void;
     editarTarefa: (tarefaEditada: Tarefa) => void;
 };
 
-export default function TodoCard({ tarefa, mudarStatus, excluirTarefa, editarTarefa }: TodoCardProps) {
+export default function TarefaCard({ tarefa, mudarStatus, excluirTarefa, editarTarefa }: TarefaCardProps) {
     const cardClassNameConcluido = tarefa.concluido ? "opacity-50" : ""
     const mudarStatusFunction = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         mudarStatus(!tarefa.concluido, tarefa.id)
     }
     const excluirTarefaPorId = () => { excluirTarefa(tarefa.id) }
     return (
-        <Card className={`flex-grow max-w-full gap-5 ${cardClassNameConcluido}`}>
+        <Card aria-label='card tarefa' className={`flex-grow max-w-full gap-5 ${cardClassNameConcluido}`}>
             <CardContent className='flex justify-between'>
                 <div className='flex items-center gap-5 w-full min-w-0'>
                     <CheckContent
                         status={tarefa.concluido}
                         mudarStatus={mudarStatusFunction}
                     />
-                    <Badge className='select-none' variant='secondary'>{tarefa.prioridade}</Badge>
+                    <Badge aria-label='prioridade' className='select-none' variant='secondary'>{tarefa.prioridade}</Badge>
                     <TypographyH3 className='select-none truncate w-2xl'>
                         {tarefa.titulo}
                     </TypographyH3>
