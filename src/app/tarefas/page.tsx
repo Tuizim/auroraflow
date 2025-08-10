@@ -2,8 +2,11 @@
 import NoContent from "@/components/no-content";
 import TarefaCreatorDialog from "@/components/tarefa-creator-dialog";
 import TodoCard from "@/components/todo-card";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Label } from "@/components/ui/label";
 import { TypographyH2, TypographyH3, TypographyLead } from "@/components/ui/typography";
 import { useTarefa } from "@/hooks/use-tarefas";
+import { useState } from "react";
 
 export default function Page() {
   const {
@@ -13,7 +16,6 @@ export default function Page() {
     editarTarefa,
     excluirTarefa
   } = useTarefa()
-
 
   return (
     <>
@@ -38,8 +40,8 @@ export default function Page() {
                 excluirTarefa={excluirTarefa}
                 editarTarefa={editarTarefa}
               />
-          ))
-          : <NoContent tipo_conteudo='NoContent'/>
+            ))
+            : <NoContent tipo_conteudo='NoContent' />
         }
       </section>
     </>

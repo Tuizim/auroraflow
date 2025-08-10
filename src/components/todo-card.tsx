@@ -7,8 +7,8 @@ import { Tarefa } from '@/models/tarefa';
 import DeleteBtn from './delete-btn';
 import TarefaEditorSheet from './tarefa-editor-sheet';
 import { DefinirCorTailWindText } from '@/lib/prioridade-cor';
-import { BookmarkSimple } from 'phosphor-react'
 import { VerMaisInformacao } from './ver-mais-informacao';
+import { Badge } from './ui/badge';
 
 type TodoCardProps = {
     tarefa: Tarefa;
@@ -22,8 +22,7 @@ export default function TodoCard({ tarefa, mudarStatus, excluirTarefa, editarTar
     const mudarStatusFunction = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         mudarStatus(!tarefa.concluido, tarefa.id)
     }
-    const excluirTarefaPorId = ()=>{excluirTarefa(tarefa.id)}
-    const prioridadeCorBookMarkClassName = DefinirCorTailWindText(tarefa.prioridade)
+    const excluirTarefaPorId = () => { excluirTarefa(tarefa.id) }
     return (
         <Card className={`flex-grow max-w-full gap-5 ${cardClassNameConcluido}`}>
             <CardContent className='flex justify-between'>
@@ -32,7 +31,7 @@ export default function TodoCard({ tarefa, mudarStatus, excluirTarefa, editarTar
                         status={tarefa.concluido}
                         mudarStatus={mudarStatusFunction}
                     />
-                    <BookmarkSimple size={28} weight="fill" className={`flex-shrink-0 ${prioridadeCorBookMarkClassName}`} />
+                    <Badge className='select-none' variant='secondary'>{tarefa.prioridade}</Badge>
                     <TypographyH3 className='select-none truncate w-2xl'>
                         {tarefa.titulo}
                     </TypographyH3>
@@ -42,7 +41,7 @@ export default function TodoCard({ tarefa, mudarStatus, excluirTarefa, editarTar
                         <VerMaisInformacao titulo={tarefa.titulo} descricao={tarefa.descricao} />
                     }
                     <TarefaEditorSheet editarTarefa={editarTarefa} tarefa={tarefa} />
-                    <DeleteBtn funcaoExcluir={excluirTarefaPorId}/>
+                    <DeleteBtn funcaoExcluir={excluirTarefaPorId} />
                 </div>
             </CardContent>
         </Card >
