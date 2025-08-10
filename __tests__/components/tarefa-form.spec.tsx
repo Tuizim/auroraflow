@@ -141,4 +141,31 @@ describe("Formulario de tarefa", () => {
             )
         })
     })
+    it("TarefaForm - aceita descrição vazia e com texto", () => {
+        setupNewForm();
+        const inputDescricao = screen.getByLabelText(/descrição/i);
+        expect(inputDescricao).toHaveValue("");
+        fireEvent.change(inputDescricao, { target: { value: "Descrição teste" } });
+        expect(inputDescricao).toHaveValue("Descrição teste");
+    });
+
+    it("TarefaForm - prioridade padrão é Baixa ao criar nova tarefa", () => {
+        setupNewForm();
+        const trigger = screen.getByRole('combobox', { name: /prioridade/i });
+        expect(trigger).toHaveTextContent("Baixa");
+    });
+
+    it("TarefaForm - prioridade inicial é da tarefa ao editar", () => {
+        setupEditForm(tarefaExistente);
+        const trigger = screen.getByRole('combobox', { name: /prioridade/i });
+        expect(trigger).toHaveTextContent(
+            tarefaExistente.prioridade.charAt(0).toUpperCase() + tarefaExistente.prioridade.slice(1)
+        );
+    });
+    it("TarefaForm - todos os campos possuem labels corretos", () => {
+        setupNewForm();
+        expect(screen.getByLabelText(/título/i)).toBeInTheDocument();
+        expect(screen.getByLabelText(/descricao/i)).toBeInTheDocument();
+        expect(screen.getByLabelText(/seletor prioridade/i)).toBeInTheDocument();
+    });
 });
