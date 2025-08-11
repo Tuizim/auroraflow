@@ -1,12 +1,9 @@
 "use client";
 import NoContent from "@/components/no-content";
-import TarefaCreatorDialog from "@/components/tarefa-creator-dialog";
 import TarefaCard from "@/components/tarefa-card";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Label } from "@/components/ui/label";
+import TarefaCreatorDialog from "@/components/tarefa-creator-dialog";
 import { TypographyH2, TypographyH3, TypographyLead } from "@/components/ui/typography";
 import { useTarefa } from "@/hooks/use-tarefas";
-import { useState } from "react";
 
 export default function Page() {
   const {

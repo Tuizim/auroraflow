@@ -1,18 +1,18 @@
 "use client";
-import { TypographyH2, TypographyLead, TypographyList } from "@/components/ui/typography";
+import MusicaControlePopover from "@/components/musica-controle-popover";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { TypographyH2, TypographyLead, TypographyList } from "@/components/ui/typography";
+import { useYoutubeProvider } from "@/components/youtube-provider";
 import { AlertCircleIcon } from "lucide-react";
 import { useState } from "react";
-import { useYoutubeProvider } from "@/components/youtube-provider";
-import MusicaControlePopover from "@/components/musica-controle-popover";
 
 export default function Page() {
   const [urlInput, setUrlInput] = useState("")
