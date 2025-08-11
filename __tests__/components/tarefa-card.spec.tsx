@@ -58,14 +58,14 @@ describe("Card tarefa", () => {
     it("deve renderizar o componente VerMaisInformacao quando existir descrição", () => {
         setupComponente(tarefaTesteComDescricao)
 
-        const botaoInfo = screen.getByLabelText(/Ver mais informação/i)
+        const botaoInfo = screen.getByLabelText(/ver mais informações/i)
 
         expect(botaoInfo).toBeInTheDocument()
     })
     it("não deve renderizar o componente VerMaisInformacao quando a descrição estiver vazia", () => {
         setupComponente(tarefaTesteSemDescricao)
 
-        const botaoInfo = screen.queryByLabelText(/Ver mais informação/i)
+        const botaoInfo = screen.queryByLabelText(/ver mais informações/i)
 
         expect(botaoInfo).not.toBeInTheDocument()
     })
