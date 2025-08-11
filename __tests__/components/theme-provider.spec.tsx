@@ -2,7 +2,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { render, screen } from "@testing-library/react";
 
 describe("ThemeProvider", () => {
-  it("renderiza children corretamente", () => {
+  it("ThemeProvider - renderiza children corretamente", () => {
     render(
       <ThemeProvider attribute="class">
         <div data-testid="child">Conteúdo filho</div>
@@ -12,7 +12,7 @@ describe("ThemeProvider", () => {
     expect(screen.getByTestId("child")).toBeInTheDocument();
   });
 
-  it("passa props para NextThemesProvider", () => {
+  it("ThemeProvider - passa props para NextThemesProvider", () => {
 
     const { container } = render(
       <ThemeProvider

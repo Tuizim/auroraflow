@@ -26,14 +26,14 @@ describe("Card tarefa", () => {
         />)
     }
 
-    it("deve renderizar o título da tarefa corretamente", () => {
+    it("TarefaCard - renderiza o título da tarefa corretamente", () => {
         setupComponente(tarefaTesteSemDescricao)
 
         const tituloTarefa = screen.getByText(tarefaTesteComDescricao.titulo)
         expect(tituloTarefa).toBeInTheDocument()
         expect(tituloTarefa).toBeVisible()
     })
-    it("deve renderizar a prioridade dentro do Badge", () => {
+    it("TarefaCard - renderiza a prioridade dentro do Badge", () => {
         setupComponente(tarefaTesteSemDescricao)
 
         const prioridade = screen.getByLabelText(/prioridade/i)
@@ -41,35 +41,35 @@ describe("Card tarefa", () => {
         expect(prioridade).toBeInTheDocument()
         expect(prioridade).toHaveTextContent(Prioridade.Baixa)
     })
-    it("deve renderizar o botão de exclusão", () => {
+    it("TarefaCard - renderiza o botão de exclusão", () => {
         setupComponente(tarefaTesteSemDescricao)
 
         const botaoDelete = screen.getByLabelText(/deletar item/i)
 
         expect(botaoDelete).toBeInTheDocument()
     })
-    it("deve renderizar o botão de edição", () => {
+    it("TarefaCard - renderiza o botão de edição", () => {
         setupComponente(tarefaTesteSemDescricao)
 
         const botaoEditar = screen.getByLabelText(/editar tarefa/i)
 
         expect(botaoEditar).toBeInTheDocument()
     })
-    it("deve renderizar o componente VerMaisInformacao quando existir descrição", () => {
+    it("TarefaCard - renderiza o componente VerMaisInformacao quando existir descrição", () => {
         setupComponente(tarefaTesteComDescricao)
 
         const botaoInfo = screen.getByLabelText(/ver mais informações/i)
 
         expect(botaoInfo).toBeInTheDocument()
     })
-    it("não deve renderizar o componente VerMaisInformacao quando a descrição estiver vazia", () => {
+    it("TarefaCard - não renderiza o componente VerMaisInformacao quando a descrição estiver vazia", () => {
         setupComponente(tarefaTesteSemDescricao)
 
         const botaoInfo = screen.queryByLabelText(/ver mais informações/i)
 
         expect(botaoInfo).not.toBeInTheDocument()
     })
-    it("deve aplicar a classe 'opacity-50' quando a tarefa estiver concluída", () => {
+    it("TarefaCard - aplica a classe 'opacity-50' quando a tarefa estiver concluída", () => {
         tarefaTesteSemDescricao.concluido = true
         setupComponente(tarefaTesteSemDescricao)
 
@@ -77,7 +77,7 @@ describe("Card tarefa", () => {
 
         expect(card).toHaveClass("opacity-50")
     })
-    it("não deve aplicar a classe 'opacity-50' quando a tarefa não estiver concluída", () => {
+    it("TarefaCard - não aplica a classe 'opacity-50' quando a tarefa não estiver concluída", () => {
         tarefaTesteSemDescricao.concluido = false
         setupComponente(tarefaTesteSemDescricao)
 
@@ -85,7 +85,7 @@ describe("Card tarefa", () => {
 
         expect(card).not.toHaveClass("opacity-50")
     })
-    it("deve chamar mudarStatus com o valor invertido ao clicar no CheckContent", async () => {
+    it("TarefaCard - chama mudarStatus com o valor invertido ao clicar no CheckContent", async () => {
         const user = userEvent.setup()
         setupComponente(tarefaTesteSemDescricao)
 
@@ -95,7 +95,7 @@ describe("Card tarefa", () => {
 
         expect(mudarStatusMock).toHaveBeenCalledWith(!tarefaTesteSemDescricao.concluido, tarefaTesteSemDescricao.id)
     })
-    it("deve chamar excluirTarefa com o id correto ao clicar no DeleteBtn", async () => {
+    it("TarefaCard - chama excluirTarefa com o id correto ao clicar no DeleteBtn", async () => {
         const user = userEvent.setup()
         setupComponente(tarefaTesteSemDescricao)
 

@@ -8,13 +8,13 @@ describe("ver mais informações", () => {
     const setup = () => {
         render(<VerMaisInformacao titulo={tituloMock} descricao={descricaoMock} />)
     }
-    it("renderiza apenas o ícone inicialmente", () => {
+    it("VerMaisInformacao - renderiza apenas o ícone inicialmente", () => {
         setup();
 
         expect(screen.getByLabelText(/ver mais informações/i)).toBeInTheDocument()
         expect(screen.queryByLabelText(/conteudo informações/i)).not.toBeInTheDocument()
     })
-    it("abre o diálogo ao clicar no ícone", async () => {
+    it("VerMaisInformacao - abre o diálogo ao clicar no ícone", async () => {
         const user = userEvent.setup()
         setup()
 
