@@ -6,12 +6,12 @@ jest.mock("@/hooks/use-tarefas");
 
 const mockUseTarefa = useTarefa as jest.Mock;
 
-describe("Page component", () => {
+describe("Tarefa page", () => {
   beforeEach(() => {
     jest.clearAllMocks();
   });
 
-  it("deve renderizar o cabeçalho corretamente", () => {
+  it("TarefasPage - renderiza o cabeçalho corretamente", () => {
     mockUseTarefa.mockReturnValue({
       tarefas: [],
       adicionarTarefa: jest.fn(),
@@ -29,7 +29,7 @@ describe("Page component", () => {
     expect(screen.getByText("Tarefas")).toBeInTheDocument();
   });
 
-  it("deve renderizar tarefas quando houver dados", () => {
+  it("TarefasPage - renderiza tarefas quando houver dados", () => {
     const tarefasFake = [
       {
         id: "1",
@@ -61,7 +61,7 @@ describe("Page component", () => {
     expect(screen.getByText("Tarefa 2")).toBeInTheDocument();
   });
 
-  it("deve renderizar NoContent quando não houver tarefas", () => {
+  it("TarefasPage - renderiza NoContent quando não houver tarefas", () => {
     mockUseTarefa.mockReturnValue({
       tarefas: [],
       adicionarTarefa: jest.fn(),

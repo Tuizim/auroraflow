@@ -38,13 +38,13 @@ describe("Componente YoutubePlayer", () => {
         });
     });
 
-    it("não deve renderizar nada se o youtubeContext.id estiver vazio", () => {
+    it("YoutubePlayer - não renderiza nada se o youtubeContext.id estiver vazio", () => {
         const contextoFalso = criarYoutubeContextFalso({ id: "" });
         const { container } = render(<YoutubePlayer youtubeContext={contextoFalso} />);
         expect(container.firstChild).toBeNull();
     });
 
-    it("deve renderizar o componente YouTube quando existir um id", () => {
+    it("YoutubePlayer - renderiza o componente YouTube quando existir um id", () => {
         const contextoFalso = criarYoutubeContextFalso({ id: "abc123" });
         render(<YoutubePlayer youtubeContext={contextoFalso} />);
 
@@ -63,7 +63,7 @@ describe("Componente YoutubePlayer", () => {
         );
     });
 
-    it("deve chamar console.warn quando ocorrer erro no player", () => {
+    it("YoutubePlayer - chama console.warn quando ocorrer erro no player", () => {
         const spyWarn = jest.spyOn(console, "warn").mockImplementation(() => { });
         (YouTube as unknown as jest.Mock).mockImplementation((props) => {
             props.onError({ data: "erro-teste" });

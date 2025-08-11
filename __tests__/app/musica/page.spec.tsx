@@ -14,7 +14,7 @@ describe("Página de Música", () => {
     jest.clearAllMocks();
   });
 
-  it("deve renderizar textos e instruções corretamente", () => {
+  it("MusicaPage - renderiza textos e instruções corretamente", () => {
     mockUseYoutubeProvider.mockReturnValue({
       youtubeContext: {
         statusPlayer: false,
@@ -36,7 +36,7 @@ describe("Página de Música", () => {
     expect(screen.getByText("Como usar")).toBeInTheDocument();
   });
 
-  it("deve chamar setUrl com o valor digitado ao clicar no botão", () => {
+  it("MusicaPage - chama setUrl com o valor digitado ao clicar no botão", () => {
     const setUrlMock = jest.fn();
 
     mockUseYoutubeProvider.mockReturnValue({
@@ -57,7 +57,7 @@ describe("Página de Música", () => {
     expect(setUrlMock).toHaveBeenCalledWith("https://youtu.be/teste");
   });
 
-  it("deve renderizar MusicaControlePopover quando statusPlayer for true", () => {
+  it("MusicaPage - renderiza MusicaControlePopover quando statusPlayer for true", () => {
     mockUseYoutubeProvider.mockReturnValue({
       youtubeContext: {
         statusPlayer: true,
