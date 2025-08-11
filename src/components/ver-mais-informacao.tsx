@@ -17,11 +17,11 @@ export const VerMaisInformacao = ({ titulo, descricao }: verMaisInformacaoProps)
     return (
         <Dialog>
             <DialogTrigger
-                aria-label='Ver mais informação'
+                aria-label='ver mais informações'
             >
                 <Eye className='cursor-pointer hover:scale-110 transition-transform duration-200' />
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent aria-label='conteudo informações'>
                 <DialogHeader>
                     <DialogTitle>
                         {titulo}
